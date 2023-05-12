@@ -1,0 +1,20 @@
+name: 'demo_dbt2'
+version: '0.0.1'
+config-version: 2
+ 
+profile: 'org_register_dbt'
+ 
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+ 
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+models:
+  demo_dbt2:
+    digital_connectivity:
+      +materialized: table
